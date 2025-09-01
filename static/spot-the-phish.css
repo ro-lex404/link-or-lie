@@ -2,6 +2,12 @@ body{
     margin: 0px;
     font-family: 'Azeret Mono', sans-serif;  
 }
+
+#textBox-part{
+    display: flex;
+    justify-content: center;
+}
+
 #main-content{
     display: flex;
     justify-content: center;

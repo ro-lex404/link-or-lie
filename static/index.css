@@ -8,3 +8,19 @@ body{
     display: flex;
     justify-content: center;
 }
+
+
+#textBox-part{
+    padding: 5vh;
+    background-color: chocolate;
+    display: flex;
+    justify-content: center;
+}
+
+#textBox{
+    font-size: xx-large;
+    padding: 20px;
+    border-radius: 50px;
+    height: 10vh;
+    width: 75vw;
+}
