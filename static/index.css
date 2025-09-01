@@ -1,0 +1,10 @@
+body{
+    margin: 0px;
+    font-family: 'Azeret Mono', sans-serif;  
+}
+
+#main-content, #definition{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
