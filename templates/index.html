@@ -8,19 +8,33 @@
     <link href="https://fonts.cdnfonts.com/css/azeret-mono" rel="stylesheet">
 </head>
 <body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/spot-the-phish">Spot the Phish</a>
+    </nav>
     <div id="main-content">
         Website to detect if a link is an attempt to phish or not.
     </div>
     <div id="definition">
-        What is phishing?
+        What is phishing?`
         It is an attempt to steal your personal data by pretending to be a real website.
         Some links maybe really hard to spot unless you REALLY try hard to spot it.
     </div>
     <div id="textBox-part">
-        <form method="POST" action="/process-form">
+        <form method="POST" action = "/process-form">
             <input type="text" id="textBox-part" name="link" required />
-            <input type="submit" value="Submit">
-        </form> 
+            <input type="submit">
+        </form>
     </div>
+    
+    <!--FUTURE ADDITION TO DYNAMICALLY UPDATE DATA IN ONE PAGE ITSELF<div id="results"></div>
+    <script>
+        let subButton = document.getElementById("submitButton");
+        let results = document.getElementById("results");
+        subButton.onclick = function(){
+            let val = results.value;
+            fetch(val, "/check");
+        }
+    </script> -->
 </body>
 </html>
