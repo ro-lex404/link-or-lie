@@ -17,8 +17,10 @@
         Some links maybe really hard to spot unless you REALLY try hard to spot it.
     </div>
     <div id="textBox-part">
-        <input type="text" id="textBox">
-        <button id="subButton"></button>
+        <form method="POST" action="/process-form">
+            <input type="text" id="textBox-part" name="link" required />
+            <input type="submit" value="Submit">
+        </form> 
     </div>
 </body>
 </html>
