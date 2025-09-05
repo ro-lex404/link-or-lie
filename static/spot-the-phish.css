@@ -44,9 +44,29 @@ body{
 }
 
 #phishDiv{
+    margin-top: 20vh;
+    margin-left: 10vw;
     width: 75vw;
     display: flex;
     flex-direction: row;
     position: absolute;
     z-index: 2;
+}
+
+.fish {
+  flex: 1;
+  text-align: center;
+  margin: 10px;
+}
+
+.fish img {
+  width: 200px;
+  height: auto;
+}
+
+.link-text {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: white;
 }

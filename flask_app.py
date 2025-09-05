@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request
-import linkModel
+from flask import Flask, jsonify, render_template, request
+import linkModel, gameModel
+from requests.exceptions import ConnectionError
 
 app = Flask(__name__)
 
@@ -17,8 +18,13 @@ def form():
         link = request.form.get("link")
         retVal = linkModel.model(link)
         return retVal
-    except ConnectError as e:
+    except ConnectionError:
         return "Please check your internet connection and try again."
+
+@app.route("/get-links")
+def get_links():
+    options = gameModel.get_random_links()
+    return jsonify(options)
 
 if __name__ == "__main__":
     app.run(debug=True)
