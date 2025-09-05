@@ -1,5 +1,9 @@
 let images = ["/static/ocean.png", "/static/ocean2.png"];
 let index = 0;
+let score = 0;
+let roundCount = 0;
+let scoreVal = document.getElementById("scoreVal");
+
 setInterval(() => {
     index = (index + 1) % images.length;
     document.getElementById("giantBox").style.backgroundImage = `url(${images[index]})`;
@@ -19,8 +23,17 @@ document.querySelectorAll(".fish").forEach(fish => {
   fish.addEventListener("click", () => {
     if (fish.dataset.type === "real") {
       alert("✅ Correct! That’s the real site.");
+      score += 1;
+      scoreVal.innerText = score;
     } else {
       alert("❌ Phish! You got tricked.");
+    }
+    roundCount += 1;
+    if (roundCount >= 5) {
+      alert(`Game over! Your final score is ${score}/5.`);
+      score = 0;
+      roundCount = 0;
+      scoreVal.innerText = score;
     }
     loadLinks(); // load new round
   });
