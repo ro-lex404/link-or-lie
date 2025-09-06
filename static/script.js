@@ -7,7 +7,7 @@ let scoreVal = document.getElementById("scoreVal");
 setInterval(() => {
     index = (index + 1) % images.length;
     document.getElementById("giantBox").style.backgroundImage = `url(${images[index]})`;
-}, 1000); // switch every 500ms
+}, 1000); // switch every 1000ms
 
 async function loadLinks() {
   let res = await fetch("/get-links");

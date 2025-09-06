@@ -12,15 +12,25 @@ def home():
 def game():
     return render_template("spot-the-phish.html")
 
-@app.route('/process-form', methods=["POST"])
+@app.route('/process-form', methods=['GET','POST'])
 def form():
     try:
-        link = request.form.get("link")
-        retVal = linkModel.model(link)
-        return retVal
+        if request.method == 'POST':
+            link = request.form.get('link')
+            if not link:
+                return jsonify({"error": "No link provided"}), 400
+            print(f"Received link: {link}")  # Debug logging
+            retVal = linkModel.model(link)
+            return jsonify({"result": retVal})  # Wrap the response in a JSON object
+        else:
+            link = request.args.get('link')
+            if not link:
+                return jsonify({"error": "No link provided"}), 400
+            retVal = linkModel.model(link)
+            return jsonify({"result": retVal})
     except ConnectionError:
-        return "Please check your internet connection and try again."
-
+        return jsonify({"error": "Please check your internet connection"}), 503
+    
 @app.route("/get-links")
 def get_links():
     options = gameModel.get_random_links()

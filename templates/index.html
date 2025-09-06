@@ -20,21 +20,13 @@
         It is an attempt to steal your personal data by pretending to be a real website.
         Some links maybe really hard to spot unless you REALLY try hard to spot it.
     </div>
-    <div>
-        <form method="POST" action = "/process-form" id="textBox-part">
-            <input type="text" id="textBox" name="link" required />
-            <input type="submit" id="subButton">
-        </form>
-    </div>
-    
-    <!--FUTURE ADDITION TO DYNAMICALLY UPDATE DATA IN ONE PAGE ITSELF<div id="results"></div>
-    <script>
-        let subButton = document.getElementById("submitButton");
-        let results = document.getElementById("results");
-        subButton.onclick = function(){
-            let val = results.value;
-            fetch(val, "/check");
-        }
-    </script> -->
+    <form method="POST" action= "/process-form" id="textBox-part">
+        <input type="text" id="textBox" name="link" required />
+        <button id="subButton" type="submit">Submit</button>
+    </form>
+    <div id="resultBox">
+            Result: <span id="resultText"></span>
+        </div>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
 </body>
 </html>

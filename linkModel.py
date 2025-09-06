@@ -7,5 +7,5 @@ def model(url):
     response = client.models.generate_content(
         model="gemini-2.0-flash", contents=f"Check if this url is likely to be a phishing attempt or not {url}"
     )
-    
-    return response.text
+    retVal = [("Response",response.text)]
+    return retVal
